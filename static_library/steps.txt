@@ -1,0 +1,8 @@
+$ gcc -c trigon.c -o trigon.o
+$ gcc -c 2d.c -o 2d.o
+$ gcc -c 3d.c -o 3d.o
+$ ar crs libgeometry.a trigon.o 2d.o 3d.o
+$ mkdir -p /opt/geometry
+$ mv libgeometry.a /opt/geometry
+$ gcc -c main.c -o main.o
+$ gcc main.o -L/opt/geometry -lgeometry -lm -o geo.out

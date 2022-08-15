@@ -1,0 +1,7 @@
+gcc -c add.c -o add.o
+gcc -c mul.c -o multiply.o
+gcc -c main.c -o main.o
+nm add.o
+nm multiply.o
+nm main.o
+gcc add.o mul.o main.o

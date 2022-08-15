@@ -1,0 +1,11 @@
+$ gcc -c trigon.c -fPIC -o trigon.o
+$ gcc -c 2d.c -fPIC -o 2d.o
+$ gcc -c 3d.c -fPIC -o 3d.o
+$ gcc -shared 2d.o 3d.o trigon.o -o libgeometry.so
+$ mkdir -p /opt/libgeometry
+$ mv libgeometry.so /opt/libgeometry
+$ rm -fv /opt/libgeometry/libgeometry.a
+$ gcc -c main.c -o main.o
+$ gcc main.o -L /opt/geometry -lgeometry -lm -o geo.out
+$ export LD_LIBRARY_PATH=/opt/geometry
+$ ./geo.out
