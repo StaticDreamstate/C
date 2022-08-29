@@ -1,0 +1,11 @@
+You cannot use malloc directly in the preceding example. That's because if 
+you are going to use malloc inside the main function, you have to pass
+sizeof(list_t) as the required number of bytes that should be allocated.
+However, you cannot use sizeof for an incomplete type.
+
+The list_t type included from the header file is an incomplete type because it is
+just a declaration that doesn't give any information regarding its internal fields,
+and we don't know its size while compiling it. The real size will be determined
+only at link time when we know the implementation details. As a solution, we
+had to have the list_malloc function defined and have malloc used in a place
+where sizeof(list_t) is determined.
