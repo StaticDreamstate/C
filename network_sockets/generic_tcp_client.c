@@ -76,12 +76,21 @@ int main(int argc, char *argv[]) {
 
 		}
 
+		char read[4096];
+		
+		if (!fgets(read, 4096, stdin)) 
+			break;
+
+		printf("Sending: %s", read);
+		int bytes_sent = send(socket_peer, read, strlen(read), 0);
+		printf("Sent %d bytes.\n", bytes_sent);
+
 	}
 
 	puts("Closing socket...");
 	CLOSESOCKET(socket_peer);
+	
 	puts("Finished.");
-
 	return 0;
 
 }
