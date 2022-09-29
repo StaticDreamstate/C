@@ -15,6 +15,7 @@ void print_mem_maps(void) {
 	}
 	fclose(fd);
 #endif
+
 }
 
 int main(int argc, char** argv) {
